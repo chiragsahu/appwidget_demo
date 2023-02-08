@@ -18,9 +18,6 @@ class NewAppWidget : AppWidgetProvider() {
         // There may be multiple widgets active, so update all of them
         for (appWidgetId in appWidgetIds) {
          //   updateAppWidget(context, appWidgetManager, appWidgetId)
-            val intent = getIntent("android.appwidget.action.APPWIDGET_UPDATE")
-            val myValue = intent.getStringExtra("samplename")
-            Log.d("updateWidget", "onUpdate: updatinggg ${intent.extras?.getString("samplename")}")
         }
     }
 

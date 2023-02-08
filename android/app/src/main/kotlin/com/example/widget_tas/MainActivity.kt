@@ -9,7 +9,8 @@ import android.widget.RemoteViews
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugins.GeneratedPluginRegistrant
-
+import android.app.PendingIntent;
+import android.content.Intent
 
 class MainActivity: FlutterActivity() {
     private val CHANNEL = "testChannel"
@@ -31,6 +32,9 @@ class MainActivity: FlutterActivity() {
                         R.id.appwidget_text,
                         colorText
                     )
+                val intent = Intent(context, MainActivity::class.java)
+                val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
+                remoteViews.setOnClickPendingIntent(R.id.appwidget_text, pendingIntent)
                 if(colorText == "red") {
                     remoteViews.setInt(R.id.appwidget_text, "setBackgroundColor",
                         android.graphics.Color.RED);
